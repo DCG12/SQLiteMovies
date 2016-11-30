@@ -17,10 +17,24 @@ public class createSQLite {
 
                 stmt = c.createStatement();
                 String sql = "CREATE TABLE Movies " +
-                        "(titulo CHAR(50) PRIMARY KEY     NOT NULL," +
-                        " id INT NOT NULL," +
-                        " fecha DATE NOT NULL," +
+                        "(id        INT PRIMARY KEY     NOT NULL," +
+                        " titulo    CHAR(50)            NOT NULL," +
+                        " fecha     DATE                NOT NULL," +
                         "personajes CHAR(50) )";
+                stmt.executeUpdate(sql);
+                sql = "CREATE TABLE Actores " +
+                        "(id              INT PRIMARY KEY     NOT NULL," +
+                        " Nombre          CHAR(50)            NOT NULL, " +
+                        " Nacimiento      DATE , " +
+                        " Fallecimiento   DATE , " +
+                        " LugarNacimiento TEXT )";
+                stmt.executeUpdate(sql);
+                sql = "CREATE TABLE  MoviesXActores " +
+                        "(id                INT            NOT NULL," +
+                        " idMovie           INT            NOT NULL, " +
+                        " idActor           INT            NOT NULL, " +
+                        " personaje         Char(50)," +
+                        " PRIMARY KEY (IdPelicula, IdActor))";
                 stmt.executeUpdate(sql);
                 stmt.close();
                 c.close();
