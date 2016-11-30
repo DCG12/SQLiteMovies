@@ -56,13 +56,15 @@ public class insertSQLite {
 
             stmt = c.createStatement();
 
-            String sql = "INSERT INTO MOVIES (titulo, id, fecha) " +
-                    "VALUES" + "(?, ?, ?);";
+            String sql = "INSERT INTO Actores (nombre, id, Nacimiento, Falleimiento, LugarNacimiento) " +
+                    "VALUES" + "(?, ?, ?, ?, ?);";
 
             PreparedStatement preparedstament = c.prepareStatement(sql);
-            preparedstament.setString(1, ORIGINAL_TITLE);
-            preparedstament.setInt(2, movie_id);
-            preparedstament.setString(3, release_date);
+            preparedstament.setString(1, name);
+            preparedstament.setInt(2, id);
+            preparedstament.setString(3, birthday);
+            preparedstament.setInt(4, deathday);
+            preparedstament.setString(5, place_of_birth);
 
             preparedstament.executeUpdate();
 
